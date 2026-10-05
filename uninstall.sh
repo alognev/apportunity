@@ -45,7 +45,7 @@ rm -rf "$HOME/.config/goose" "$HOME/.local/share/goose" "$HOME/.local/state/goos
        "$HOME/Library/Application Support/Goose" "$HOME/Library/Logs/Goose" \
        "$HOME/Library/Caches/com.electron.goose" "$HOME/Library/Preferences/com.electron.goose.plist" \
        "$HOME/Library/Saved Application State/com.electron.goose.savedState"
-for s in business-letter confluence-research data-report jira-task mail-digest meeting-protocol; do
+for s in business-letter confluence-research data-report jira-task mail-digest meeting-protocol spec-routine; do
   rm -rf "$HOME/.agents/skills/$s"
 done
 security delete-generic-password -s goose -a secrets >/dev/null 2>&1   # токен LLM в связке ключей
