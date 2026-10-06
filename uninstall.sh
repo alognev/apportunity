@@ -27,6 +27,9 @@ for plist in "$HOME"/Library/LaunchAgents/ru.magnit-agent.*.plist; do
   rm -f "$plist"
 done
 
+launchctl unsetenv OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT 2>/dev/null   # трассировка Langfuse
+launchctl unsetenv OTEL_METRICS_EXPORTER 2>/dev/null; launchctl unsetenv OTEL_LOGS_EXPORTER 2>/dev/null
+
 echo "Приложения..."
 rm -rf "/Applications/ИИ-помощник.app" "$HOME/Applications/ИИ-помощник.app"
 rm -rf "/Applications/Goose.app" "$HOME/Applications/Goose.app"
