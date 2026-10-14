@@ -48,10 +48,11 @@ rm -rf "$HOME/.config/goose" "$HOME/.local/share/goose" "$HOME/.local/state/goos
        "$HOME/Library/Application Support/Goose" "$HOME/Library/Logs/Goose" \
        "$HOME/Library/Caches/com.electron.goose" "$HOME/Library/Preferences/com.electron.goose.plist" \
        "$HOME/Library/Saved Application State/com.electron.goose.savedState"
-for s in business-letter confluence-research data-report jira-task mail-digest meeting-protocol spec-routine; do
+for s in business-letter confluence-research data-report jira-task mail-digest meeting-protocol spec-routine teradata; do
   rm -rf "$HOME/.agents/skills/$s"
 done
 security delete-generic-password -s goose -a secrets >/dev/null 2>&1   # токен LLM в связке ключей
+security delete-generic-password -s magnit-agent-teradata >/dev/null 2>&1  # пароль Teradata
 
 echo "Команды и Python от установщика..."
 rm -f "$HOME/.local/bin/magnit-goose" "$HOME/.local/bin/magnit-claude" "$HOME/.local/bin/magnit-agent" "$HOME/.local/bin/goose"
