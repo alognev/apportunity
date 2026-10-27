@@ -4,7 +4,21 @@
 #   bash uninstall.sh          — спросит подтверждение
 #   bash uninstall.sh --yes    — без вопроса
 # Не трогает: рабочую папку с вашими файлами (~/magnit-agent-workspace) и корпоративные сертификаты в связке ключей.
+# Одинаково в любой оболочке: из sh или zsh — перезапуск в bash (скрипт написан для bash)
+if [ -z "${BASH_VERSION:-}" ]; then exec bash "$0" "$@"; fi
 set -uo pipefail
+# Windows (Git Bash, MSYS, Cygwin): тот же установщик, что по двойному щелчку «… (Windows).cmd», — Windows PowerShell
+is_windows() { case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) return 0 ;; esac; return 1; }
+win_ps() {  # win_ps ПУТЬ_К_PS1 [аргументы] — MAGNIT_PS подменяет powershell.exe в проверках
+  local script; script="$(cygpath -w "$1" 2>/dev/null || echo "$1")"; shift
+  exec "${MAGNIT_PS:-powershell.exe}" -NoProfile -ExecutionPolicy Bypass -File "$script" "$@"
+}
+if is_windows; then
+  ps1="$(cd "$(dirname "$0")" && pwd)/windows/uninstall.ps1"
+  [[ -f "$ps1" ]] || { echo "На Windows удаление — «Удалить помощника (Windows)» в папке помощника или «Пуск»."; exit 1; }
+  win_args=(); [[ "${1:-}" == "--yes" ]] && win_args=(-Yes)
+  win_ps "$ps1" ${win_args[@]+"${win_args[@]}"}
+fi
 
 if [[ "${1:-}" != "--yes" ]]; then
   echo "Будут удалены ИИ-помощник, Goose (приложение, настройки, история чатов), токены, модель поиска,"
