@@ -6,15 +6,15 @@
 	<dict>
 		<key>Resources/Scripts/main.scpt</key>
 		<data>
-		SZLmxU1M5beD9vNjfV/qdQM9ILs=
+		ePLghWHK0hUedvzWmEjL3g2QvyE=
 		</data>
 		<key>Resources/VERSION</key>
 		<data>
-		5q0YJzkeQtuixcgZTJNvjuOrq78=
+		R4XIIixHeTqqfGdRTTfhx1KNO9k=
 		</data>
 		<key>Resources/ai-agent-local.zip</key>
 		<data>
-		j+saf8ONa90cy57oqNDHdAXwdP0=
+		8BUAxFcDiNE2wFxaWNP4P9Sy2Xg=
 		</data>
 		<key>Resources/applet.icns</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Resources/launcher.sh</key>
 		<data>
-		lzPvLk8MetmwXnal7irRd7lXA6U=
+		vlJeL+G4Gb5H5D2NFJjPcEUMSQ8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -35,33 +35,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SZLmxU1M5beD9vNjfV/qdQM9ILs=
+			ePLghWHK0hUedvzWmEjL3g2QvyE=
 			</data>
 			<key>hash2</key>
 			<data>
-			NEHCxW6ZIIoB2WBhU30t8R2JBVkyGrMfE01u/QZ4+GQ=
+			qbPWv+2PbjJG0rAGP6NWTZc+xCsFUCFdJD+6HmA54Bo=
 			</data>
 		</dict>
 		<key>Resources/VERSION</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5q0YJzkeQtuixcgZTJNvjuOrq78=
+			R4XIIixHeTqqfGdRTTfhx1KNO9k=
 			</data>
 			<key>hash2</key>
 			<data>
-			knMXn1QtdIgtqCaS4kOyLLukrxeDU7wYiiuvFrfNXZE=
+			3kFpv/AwqOQJ2GihFGu8c9fU6+ISh7If01jTgQlPLAI=
 			</data>
 		</dict>
 		<key>Resources/ai-agent-local.zip</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			j+saf8ONa90cy57oqNDHdAXwdP0=
+			8BUAxFcDiNE2wFxaWNP4P9Sy2Xg=
 			</data>
 			<key>hash2</key>
 			<data>
-			dXqMQ9ij+5ubH8yT+g+rjnQ6wUkE2Wp0FS1aoU8aYcw=
+			wQ0wTJZpDFSilxFnmjg4ewO3AyyPPmCnm/36Cd7/08E=
 			</data>
 		</dict>
 		<key>Resources/applet.icns</key>
@@ -90,11 +90,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lzPvLk8MetmwXnal7irRd7lXA6U=
+			vlJeL+G4Gb5H5D2NFJjPcEUMSQ8=
 			</data>
 			<key>hash2</key>
 			<data>
-			1FeBlUKLcdCxU9C7D6Fs3ynXS6KLkF5XQ+G2H0dJt6Q=
+			JKBgZsqkhQNlBukFsQe2v0J8LSAlPDbL7r82Impp52E=
 			</data>
 		</dict>
 	</dict>

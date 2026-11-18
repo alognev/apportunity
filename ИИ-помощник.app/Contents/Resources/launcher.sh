@@ -11,8 +11,17 @@ fi
 have="$(cat "$ROOT/VERSION" 2>/dev/null || echo 0)"; bundled="$(cat "$RES/VERSION" 2>/dev/null || echo 0)"
 if [[ ! -d "$ROOT/.git" && -f "$RES/ai-agent-local.zip" ]] && { [[ ! -f "$ROOT/app/agentctl.sh" ]] || [[ "$bundled" -gt "$have" ]]; }; then
   tmp="$(mktemp -d)"
-  /usr/bin/ditto -x -k "$RES/ai-agent-local.zip" "$tmp" && mkdir -p "$ROOT" && /usr/bin/rsync -a "$tmp/ai-agent-local/" "$ROOT/"
-  rm -rf "$tmp"
+  if [[ -f "$ROOT/app/agentctl.sh" ]]; then
+    : > "$ROOT/.update-pending" || exit 1
+  fi
+  if ! /usr/bin/ditto -x -k "$RES/ai-agent-local.zip" "$tmp" ||
+     ! mkdir -p "$ROOT" || ! /usr/bin/rsync -a --exclude=VERSION "$tmp/ai-agent-local/" "$ROOT/" ||
+     ! cp "$tmp/ai-agent-local/VERSION" "$ROOT/VERSION"; then
+    rm -rf "${tmp:?}"
+    echo "Не удалось распаковать новую версию помощника." >&2
+    exit 1
+  fi
+  rm -rf "${tmp:?}"
   /usr/bin/xattr -dr com.apple.quarantine "$ROOT" 2>/dev/null
 fi
 [[ -f "$ROOT/app/agentctl.sh" ]] || { echo "Не найдена папка помощника: $ROOT" >&2; exit 1; }
